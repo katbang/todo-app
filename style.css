@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+}
+body {
+  margin: 0 auto;
+  background-color: #243d3d;
+}
+h1 {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  margin: auto;
+  text-align: center;
+}
+h1,
+th,
+td,
+label {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: white;
+}
+#list,
+#done {
+  margin: auto;
+}
+th {
+  padding-right: 40px;
+  color: mediumaquamarine;
+}
+.purchase {
+  text-align: start;
+}
+
+td {
+  padding-right: 20px;
+}
+
+.statusgreen {
+  background-image: url("asset/circle-regular.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.statusgreen:hover {
+  background-image: url("asset/circle-check-solid.svg");
+}
+.statusred {
+  background-image: url("asset/circle-regular.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.statusred:hover {
+  background-image: url("asset/circle-xmark-solid.svg");
+}
+.trash {
+  background-image: url("asset/trash-regular.svg");
+  background-repeat: no-repeat;
+}
+.trash:hover {
+  background-image: url("asset/trash-solid.svg");
+}
+
+.inputs_container {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+.inputs {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  gap: 0.5rem;
+  max-width: 220px;
+  padding-bottom: 20px;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+label {
+  margin-bottom: 20px;
+}
+input {
+  height: 20px;
+}
+
+#number {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+.button_container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+button {
+  height: 35px;
+  width: 35px;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  fill: white;
+  background-color: inherit;
+}
+button:hover {
+  fill: limegreen;
+}
+button svg {
+  padding-bottom: 20px;
+}
+#items {
+  order: 1;
+}

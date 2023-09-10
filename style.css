@@ -94,10 +94,12 @@ input {
 .button_container {
   display: grid;
   grid-template-rows: 1fr 1fr;
+  width: 25px;
 }
 button {
-  height: 35px;
-  width: 35px;
+  background-image: url("asset/circle-plus.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
   border: none;
   cursor: pointer;
   appearance: none;
@@ -105,18 +107,11 @@ button {
   background-color: inherit;
 }
 button:hover {
-  fill: limegreen;
+  background-image: url("asset/circle-plus-solid.svg");
 }
 button svg {
   padding-bottom: 20px;
 }
 #items {
   order: 1;
-}
-
-@media (max-width: 500px) {
-  button {
-    min-height: 25px;
-    min-width: 25px;
-  }
 }

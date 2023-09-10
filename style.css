@@ -113,3 +113,10 @@ button svg {
 #items {
   order: 1;
 }
+
+@media (max-width: 500px) {
+  button {
+    min-height: 25px;
+    min-width: 25px;
+  }
+}

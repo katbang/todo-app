@@ -94,7 +94,7 @@ input {
 .button_container {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  width: 25px;
+  max-width: 25px;
 }
 button {
   background-image: url("asset/circle-plus.svg");

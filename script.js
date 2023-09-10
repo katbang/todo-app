@@ -1,5 +1,15 @@
 document.querySelector("button").addEventListener("mousedown", prepareObjects);
+window.addEventListener("load", () => {
+  let storedList = JSON.parse(localStorage.getItem("list"));
+  let storedCompleted = JSON.parse(localStorage.getItem("completed"));
 
+  if (storedList) {
+    shoppingList.push.apply(shoppingList, storedList);
+    shoppingList.forEach(displayItems);
+    completedList.push.apply(completedList, storedCompleted);
+    completedList.forEach(displayCompleted);
+  }
+});
 const shoppingList = [];
 const completedList = [];
 const allItems = { product: "", number: 0, id: 0 };
@@ -22,15 +32,19 @@ function prepareObjects() {
 
 function displayList() {
   document.querySelector("#list tbody").innerHTML = "";
+  localStorage.setItem("list", JSON.stringify(shoppingList));
+  const storageToDo = JSON.parse(localStorage.getItem("list"));
 
   // build a new list
-  shoppingList.forEach(displayItems);
+  storageToDo.forEach(displayItems);
 }
 function displayCompleted() {
   document.querySelector("#done tbody").innerHTML = "";
-
+  localStorage.setItem("completed", JSON.stringify(completedList));
+  const storageCompleted = JSON.parse(localStorage.getItem("completed"));
   // build a new list
-  completedList.forEach(displayRest);
+
+  storageCompleted.forEach(displayRest);
 }
 
 function displayItems(item) {

@@ -23,10 +23,14 @@ label {
 #done {
   margin: auto;
 }
+
 th {
   padding-right: 40px;
   padding-bottom: 10px;
   color: mediumaquamarine;
+}
+th:first-child {
+  width: 140px;
 }
 .purchase {
   text-align: start;
@@ -67,7 +71,7 @@ td {
 }
 .inputs {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 5fr 5fr 1fr;
   gap: 0.5rem;
   max-width: 220px;
   padding-bottom: 20px;

@@ -96,22 +96,13 @@ function checkCheckbox() {
 }
 
 function deleteObject(event) {
-  const idDelete = event.target.getAttribute("id");
-  if (shoppingList.some((e) => `${e.id}` === idDelete)) {
-    const index =
-      shoppingList
-        .map((e) => {
-          e.id;
-        })
-        .indexOf(`${idDelete}`) + 1;
+  const idDelete = parseInt(event.target.getAttribute("id"));
+
+  if (shoppingList.some((e) => e.id === idDelete)) {
+    const index = shoppingList.map((e) => e.id).indexOf(idDelete);
     shoppingList.splice(index, 1);
-  } else if (completedList.find((e) => `${e.id}` === idDelete)) {
-    const index2 =
-      completedList
-        .map((e) => {
-          e.id;
-        })
-        .indexOf(`${idDelete}`) + 1;
+  } else if (completedList.some((e) => e.id === idDelete)) {
+    const index2 = completedList.map((e) => e.id).indexOf(idDelete);
     completedList.splice(index2, 1);
   }
 
@@ -120,23 +111,14 @@ function deleteObject(event) {
 }
 
 function moveObject(event) {
-  const identifier = event.target.getAttribute("id");
+  const identifier = parseInt(event.target.getAttribute("id"));
+
   if (event.target.classList.contains("statusgreen")) {
-    const index =
-      shoppingList
-        .map((e) => {
-          e.id;
-        })
-        .indexOf(`${identifier}`) + 1;
+    const index = shoppingList.map((e) => e.id).indexOf(identifier);
     const completed = shoppingList.splice(index, 1);
     completedList.push.apply(completedList, completed);
   } else if (event.target.classList.contains("statusred")) {
-    const index2 =
-      completedList
-        .map((e) => {
-          e.id;
-        })
-        .indexOf(`${identifier}`) + 1;
+    const index2 = completedList.map((e) => e.id).indexOf(identifier);
     const shop = completedList.splice(index2, 1);
     shoppingList.push.apply(shoppingList, shop);
   }

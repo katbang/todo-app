@@ -34,16 +34,12 @@ function displayList() {
   document.querySelector("#list tbody").innerHTML = "";
   localStorage.setItem("list", JSON.stringify(shoppingList));
   const storageToDo = JSON.parse(localStorage.getItem("list"));
-
-  // build a new list
   storageToDo.forEach(displayItems);
 }
 function displayCompleted() {
   document.querySelector("#done tbody").innerHTML = "";
   localStorage.setItem("completed", JSON.stringify(completedList));
   const storageCompleted = JSON.parse(localStorage.getItem("completed"));
-  // build a new list
-
   storageCompleted.forEach(displayRest);
 }
 

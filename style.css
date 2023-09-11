@@ -23,7 +23,9 @@ label {
 #done {
   margin: auto;
 }
-
+table {
+  border-spacing: 9px;
+}
 th {
   padding-right: 40px;
   padding-bottom: 10px;

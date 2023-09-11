@@ -76,7 +76,6 @@ function checkCheckbox() {
     checkbox.forEach((box) => {
       box.addEventListener("mousedown", moveObject);
     });
-
     const trashcan = document.querySelectorAll("[data-field=delete]");
     trashcan.forEach((trash) => {
       trash.addEventListener("mousedown", deleteObject);
@@ -101,7 +100,6 @@ function deleteObject(event) {
     const index2 = completedList.map((e) => e.id).indexOf(idDelete);
     completedList.splice(index2, 1);
   }
-
   displayList();
   displayCompleted();
 }

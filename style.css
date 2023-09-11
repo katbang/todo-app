@@ -4,7 +4,9 @@
 body {
   margin: 0 auto;
   background-color: #243d3d;
+  margin-bottom: 150px;
 }
+
 h1 {
   padding-top: 50px;
   padding-bottom: 30px;
@@ -67,6 +69,10 @@ td {
 }
 
 .inputs_container {
+  display: block;
+  background-color: #243d3d;
+  padding-top: 20px;
+  height: 100px;
   bottom: 0;
   position: fixed;
   width: 100%;

@@ -28,6 +28,7 @@ function prepareObjects() {
 
     displayList();
   }
+  document.getElementById("items").value = "";
 }
 
 function displayList() {

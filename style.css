@@ -44,20 +44,20 @@ td {
   padding-right: 20px;
 }
 
-.statusgreen {
+.false {
   background-image: url("assets/circle-regular.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
-.statusgreen:hover {
+.false:hover {
   background-image: url("assets/circle-check-solid.svg");
 }
-.statusred {
+.true {
   background-image: url("assets/circle-regular.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
-.statusred:hover {
+.true:hover {
   background-image: url("assets/circle-xmark-solid.svg");
 }
 .trash {

@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
 });
 const shoppingList = [];
 const completedList = [];
-const allItems = { product: "", number: 0, id: 0 };
+const allItems = { product: "", number: 0, done: false, id: 0 };
 let numb = 0;
 
 function prepareObjects() {
@@ -23,6 +23,7 @@ function prepareObjects() {
     const item = Object.create(allItems);
     item.product = inputItem;
     item.number = inputNumber;
+    item.done = false;
     item.id = numb;
 
     shoppingList.push(item);
@@ -43,7 +44,7 @@ function displayCompleted() {
   document.querySelector("#done tbody").innerHTML = "";
   localStorage.setItem("completed", JSON.stringify(completedList));
   const storageCompleted = JSON.parse(localStorage.getItem("completed"));
-  storageCompleted.forEach(displayItems);
+  storageCompleted.forEach(displayRest);
 }
 
 function displayItems(item) {
@@ -55,8 +56,21 @@ function displayItems(item) {
   clone.querySelector("[data-field=status]").classList.add(`${item.done}`);
   clone.querySelector("[data-field=delete]").setAttribute("id", `${item.id}`);
 
-  // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
+
+  checkCheckbox();
+}
+function displayRest(item) {
+  const clone = document.querySelector("template#item").content.cloneNode(true);
+
+  clone.querySelector("[data-field=item]").textContent = item.product;
+  clone.querySelector("[data-field=number]").textContent = item.number;
+  clone.querySelector("[data-field=status]").setAttribute("id", `${item.id}`);
+  clone.querySelector("[data-field=status]").classList.add(`${item.done}`);
+  clone.querySelector("[data-field=delete]").setAttribute("id", `${item.id}`);
+
+  document.querySelector("#done tbody").appendChild(clone);
+
   checkCheckbox();
 }
 
@@ -101,14 +115,11 @@ function moveObject(event) {
     const index = shoppingList.map((e) => e.id).indexOf(identifier);
     const completed = shoppingList.splice(index, 1);
     completed[0].done = true;
-    console.log(shoppingList);
     completedList.push.apply(completedList, completed);
   } else if (event.target.classList.contains("true")) {
     const index2 = completedList.map((e) => e.id).indexOf(identifier);
     const shop = completedList.splice(index2, 1);
     shop[0].done = false;
-    console.log(shop);
-    console.log(completedList);
     shoppingList.push.apply(shoppingList, shop);
   }
   displayList();

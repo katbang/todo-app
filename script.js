@@ -44,7 +44,7 @@ function displayCompleted() {
   document.querySelector("#done tbody").innerHTML = "";
   localStorage.setItem("completed", JSON.stringify(completedList));
   const storageCompleted = JSON.parse(localStorage.getItem("completed"));
-  storageCompleted.forEach(displayRest);
+  storageCompleted.forEach(displayItems);
 }
 
 function displayItems(item) {
@@ -55,21 +55,11 @@ function displayItems(item) {
   clone.querySelector("[data-field=status]").setAttribute("id", `${item.id}`);
   clone.querySelector("[data-field=status]").classList.add(`${item.done}`);
   clone.querySelector("[data-field=delete]").setAttribute("id", `${item.id}`);
-
-  document.querySelector("#list tbody").appendChild(clone);
-
-  checkCheckbox();
-}
-function displayRest(item) {
-  const clone = document.querySelector("template#item").content.cloneNode(true);
-
-  clone.querySelector("[data-field=item]").textContent = item.product;
-  clone.querySelector("[data-field=number]").textContent = item.number;
-  clone.querySelector("[data-field=status]").setAttribute("id", `${item.id}`);
-  clone.querySelector("[data-field=status]").classList.add(`${item.done}`);
-  clone.querySelector("[data-field=delete]").setAttribute("id", `${item.id}`);
-
-  document.querySelector("#done tbody").appendChild(clone);
+  if (item.done) {
+    document.querySelector("#done tbody").appendChild(clone);
+  } else {
+    document.querySelector("#list tbody").appendChild(clone);
+  }
 
   checkCheckbox();
 }
